@@ -66,6 +66,11 @@ g.addEdge(2, 0)
 g.addEdge(2, 1)
 g.addEdge(1, 3)
 
+# given an array
+array= [0,1,2,3]
+
+#apply custom combinations to run printAllPaths
+
 
 s = 2 ; d = 3
 print ("Following are all different paths from %d to %d :" %(s, d))
