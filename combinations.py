@@ -9,9 +9,11 @@ def combinations(iterable, r):
             yield tuple(pool[i] for i in indices)
 
   
-i = 1
-for n in combinations("ABCD",2):
-  #print(list(n))
-  if(list(n)[0]=='A'):
-    print(list(n))
+def printCombinations(string):
+  i = 1
+  for n in combinations(string,2):
+    if(list(n)[0]==string[0]):
+      print(list(n))
   i += 1
+
+printCombinations("0123")
