@@ -6,8 +6,16 @@ for L in range(1, 2):
   	if(list(subset)[0]==stuff[0]):
   		print(list(subset))
 
-print("end of list test and beginning of working combinations")
+print("end of list test and beginning of working combinations simple script")
 
+def printCombinationsArray(array):
+	for L in range(1, 2):
+		for subset in combinations(array, 2):
+			if(list(subset)[0]==array[0]):
+				print(list(subset))
+
+printCombinationsArray(["0","1", "2", "3"])
+print("end of list test and beginning of working combinations function")
 
 # #without filtering
 # i = 1
