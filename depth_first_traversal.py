@@ -34,6 +34,7 @@ class Graph:
 		else:
 			# If current vertex is not destination
 			#Recur for all the vertices adjacent to this vertex
+			print(self.graph[u])
 			for i in self.graph[u]:
 				if visited[i]==False:
 					self.printAllPathsUtil(i, d, visited, path)

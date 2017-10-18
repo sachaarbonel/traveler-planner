@@ -3,18 +3,18 @@ from depth_first_traversal import Graph
 
 #print(printCombinations("0123"))
 
-keys = ["MADRID-LISBONNE","LISBONNE-GRECE","GRECE-MADRID", "MADRID-GRECE","GRECE-LISBONNE","LISBONNE-MADRID"]
+
 # Create a graph given in the above diagram
-g = Graph(3)
-g.addEdge("MADRID", "LISBONNE")
-g.addEdge("LISBONNE", "GRECE")
-g.addEdge("GRECE", "MADRID")
-g.addEdge("MADRID", "GRECE")
-g.addEdge("GRECE", "LISBONNE")
-g.addEdge("LISBONNE", "MADRID")
+g = Graph(4)
+g.addEdge(0, 1)
+g.addEdge(0, 2)
+g.addEdge(0, 3)
+g.addEdge(2, 0)
+g.addEdge(2, 1)
+g.addEdge(1, 3)
 
 # given an array
-#array= ["MADRID","LISBONNE",2,3]
+#array= [0,1,2,3]
 
 #apply custom combinations to run printAllPaths
 
