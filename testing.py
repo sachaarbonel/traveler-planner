@@ -1,35 +1,21 @@
 from combinations import printCombinations
 from combinations_on_list import printCombinationsArray
-from depth_first_traversal import Graph
+from depth_first_traversal_2 import find_all_paths
 
-#NOT WORKING
-
-#print(printCombinations("0123"))
-
-keys = ["MADRID-LISBONNE","LISBONNE-GRECE","GRECE-MADRID", "MADRID-GRECE","GRECE-LISBONNE","LISBONNE-MADRID"]
-# Create a graph given in the above diagram
-g = Graph(3)
-g.addEdge("MADRID", "LISBONNE")
-g.addEdge("LISBONNE", "GRECE")
-g.addEdge("GRECE", "MADRID")
-g.addEdge("MADRID", "GRECE")
-g.addEdge("GRECE", "LISBONNE")
-g.addEdge("LISBONNE", "MADRID")
-
-# given an array
-#array= ["MADRID","LISBONNE",2,3]
-
-#apply custom combinations to run printAllPaths
+graph = {'MADRID': ['GRECE','LISBONNE'],
+             'GRECE': ['LISBONNE','MADRID'],
+             'LISBONNE': ['GRECE','MADRID']}
 
 
-# s = 2 ; d = 3
-# print ("Following are all different paths from %d to %d :" %(s, d))
-# g.printAllPaths(s, d)
+# print(find_all_paths(graph,"MADRID","LISBONNE"))
 
+# print(find_all_paths(graph,"MADRID","GRECE"))
+
+keys = ["MADRID","LISBONNE","GRECE"]
 i = 1
-for n in printCombinationsArray(["MADRID","LISBONNE","GRECE"]):
+for n in printCombinationsArray(keys):
 	s = list(n)[0]
 	d= list(n)[1]
 	#print("Following are all different paths from %d to %d :" %(s, d))
-	g.printAllPaths(s, d)
+	print(find_all_paths(graph,s, d))
 i += 1
