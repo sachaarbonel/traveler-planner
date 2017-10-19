@@ -23,10 +23,8 @@ g.addEdge(1, 3)
 # print ("Following are all different paths from %d to %d :" %(s, d))
 # g.printAllPaths(s, d)
 
-i = 1
 for n in printCombinations("0123"):
 	s = int(list(n)[0])
 	d= int(list(n)[1])
 	print("Following are all different paths from %d to %d :" %(s, d))
 	g.printAllPaths(s, d)
-i += 1

@@ -10,12 +10,10 @@ def combinations(iterable, r):
 
   
 def printCombinations(string):
-  i = 1
   for n in combinations(string,2):
     if(list(n)[0]==string[0]):
       print(list(n))
       yield list(n)
-  i += 1
 
 
 
