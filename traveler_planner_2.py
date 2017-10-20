@@ -5,6 +5,7 @@ from permutations_origin import printPermutationsOrigin
 from permutations_origin import gimmePermutationsOrigin
 from collections import defaultdict
 from random import uniform
+from list_of_dates import printListOfDates
 
 graph = {'MADRID': ['GRECE','LISBONNE'],
              'GRECE': ['LISBONNE','MADRID'],
@@ -47,11 +48,13 @@ def gimmeRoutePossibilities(keys):
 def printMinPossibility(keys):
 
 	def gimmePossibilities(keys):
+		dList = printListOfDates()
 		g = gimmeRoutePossibilities(keys)
 		print(dictLists)
 		for i in range(0, len(g)):
 			yield dictLists[g[i][0]][0] + dictLists[g[i][1]][1] + dictLists[g[i][2]][2]
-			print("Price for " +g[i][0], dictLists[g[i][0]][0],"Price for " +g[i][1],dictLists[g[i][1]][1],"Price for " +g[i][2],dictLists[g[i][2]][2])
+			print("\n"+"For the possibility " + str(i+1))
+			print("Price for " +g[i][0]+" for date ",dList[0],dictLists[g[i][0]][0],"Price for " +g[i][1]+" for date ",dList[1],dictLists[g[i][1]][1],"Price for " +g[i][2]+" for date ",dList[2],dictLists[g[i][2]][2])
 	for n in gimmePossibilities(keys):
 		if n is not None:
 			yield int(n)
