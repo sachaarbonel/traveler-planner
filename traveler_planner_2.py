@@ -11,6 +11,15 @@ graph = {'MADRID': ['GRECE','LISBONNE'],
              'LISBONNE': ['GRECE','MADRID']}
 
 
+key1=["MADRID","LISBONNE","GRECE"]
+
+keys = ["MADRID-LISBONNE","LISBONNE-GRECE","GRECE-MADRID", "MADRID-GRECE","GRECE-LISBONNE","LISBONNE-MADRID"]
+dictLists = {key:[int(round(uniform(20, 180))) for _ in range(5)] for key in keys}
+
+#def printAll(keys,dictLists,dateList):
+
+
+
 def printRoutePossibilities(keys):
 	for n in printCombinationsArray(keys):
 		s = list(n)[0]
@@ -21,30 +30,9 @@ def printRoutePossibilities(keys):
 def printRoutesAndStepsForEach(keys):
 	for n in printRoutePossibilities(keys):
 		print(list(n),"possibility")
-		#yield list(n)
 		for a, b in printPermutationsOrigin(n):
 			yield a + "-"+b
-			#print(a,b)	
 		print("permutation origin finished")
-
-#printRoutesAndStepsForEach(["MADRID","LISBONNE","GRECE"])
-key1=["MADRID","LISBONNE","GRECE"]
-
-keys = ["MADRID-LISBONNE","LISBONNE-GRECE","GRECE-MADRID", "MADRID-GRECE","GRECE-LISBONNE","LISBONNE-MADRID"]
-dictLists = {key:[int(round(uniform(20, 180))) for _ in range(5)] for key in keys}
-# print(dictLists)
-
-# for n in printRoutesAndStepsForEach(key1):
-
-
-
-# def gimmeRoutePossibilities(keys):
-# 	for a,b in printRoutePossibilities(keys)
-# 		gimmeA= list(gimme(a))
-# 		gimmeB = list(gimme(b))
-	
-# 	gimme= [gimmeA] + [gimmeB]
-# 	return gimme
 
 
 def gimmeRoutePossibilities(keys):
@@ -53,27 +41,28 @@ def gimmeRoutePossibilities(keys):
 			yield a + "-"+b
 	listn=[]
 	for n in printRoutePossibilities(keys):
-		#listn += [list(printPermutationsOrigin(n))]
 		listn += [list(gimme(n))]
-		#print(listn,"in the loop")
-	#array= array+list(listn)
-	print(listn)
 	return(listn)
 
+def printMinPossibility(keys):
 
-gimmeRoutePossibilities(key1)
-# for i in gimmeRoutePossibilities(key1):
-# 	print(i)
+	def gimmePossibilities(keys):
+		g = gimmeRoutePossibilities(keys)
+		print(dictLists)
+		for i in range(0, len(g)):
+			yield dictLists[g[i][0]][0] + dictLists[g[i][1]][1] + dictLists[g[i][2]][2]
+			print("Price for " +g[i][0], dictLists[g[i][0]][0],"Price for " +g[i][1],dictLists[g[i][1]][1],"Price for " +g[i][2],dictLists[g[i][2]][2])
+	for n in gimmePossibilities(keys):
+		if n is not None:
+			yield int(n)
+
+def printMin(keys):
+	listn=[]
+	for n in printMinPossibility(keys):
+		listn += [n]
+	print(listn,"Sum of the prices in array")
+	print(min(listn),"Min of the sum")
+	return min(listn)
 
 
-# # list2=[1,2]
-# # gimme = list(gimme())
-# # gimme = [gimme] + [list2]
-# # print(gimme)
-
-#for i in gimme:
-# 	dictLists[gimme[0]][0] + dictLists[gimme[1]][1] + dictLists[gimme[2]][2]
-
-# possibility1= dictLists[gimme[0]][0] + dictLists[gimme[1]][1] + dictLists[gimme[2]][2]
-
-
+printMin(key1)

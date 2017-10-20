@@ -7,7 +7,7 @@ def gimmePermutationsOrigin(array):
 	for n in printPermutationsOrigin(array):
 		yield list(n)
 
-arr = [5, 66, 7, 8]
+#arr = [5, 66, 7, 8]
 # gimmePermutationsOrigin(arr)
 
 
