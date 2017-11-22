@@ -1,5 +1,12 @@
 from copy import copy
 
+#####################################################################
+#																	#
+#							NOT USED 								#
+#																	#
+#####################################################################
+
+
 '''
 	is_connected - Checks if a graph in the form of a dictionary is 
 	connected or not, using Breadth-First Search Algorithm (BFS)
