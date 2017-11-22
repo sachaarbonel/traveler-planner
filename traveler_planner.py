@@ -18,8 +18,8 @@ key1=["MADRID","LISBONNE","GRECE"]
 keys = ["MADRID-LISBONNE","LISBONNE-GRECE","GRECE-MADRID", "MADRID-GRECE","GRECE-LISBONNE","LISBONNE-MADRID"]
 dictLists = {key:[int(round(uniform(20, 180))) for _ in range(5)] for key in keys}
 
-#def printAll(keys,dictLists,dateList):
 
+#def printAll(keys,dictLists,dateList):
 
 
 def printRoutePossibilities(keys):
@@ -35,18 +35,25 @@ def printRoutePossibilities(keys):
 # 			yield a + "-"+b
 # 		print("permutation origin finished")
 
+#print(key1[0] in graph[key1[2]])
+
 
 def gimmeRoutePossibilities(keys):
 	
 	def gimme(key):
 		for a, b in gimmePermutationsOrigin(key):
 			yield a + "-"+b
-			
+
 	listn=[]
 	for n in printRoutePossibilities(keys):
-		listn += [list(gimme(n))]
-	
+		lenN = len(n)
+		#print(n,"route possibilities before test")
+		#print(n[0] in graph[n[lenN-1]])
+		if(n[0] in graph[n[lenN-1]]):
+			listn += [list(gimme(n))]
+
 	return(listn)
+
 
 def printMinPossibility(keys):
 

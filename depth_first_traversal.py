@@ -1,5 +1,5 @@
 graph = {'MADRID': ['GRECE','LISBONNE'],
-             'GRECE': ['LISBONNE'],
+             'GRECE': ['LISBONNE','MADRID'],
              'LISBONNE': ['GRECE','MADRID']}
 
 
@@ -38,22 +38,6 @@ def find_all_paths2(graph, start, end, path=[]):
 
         return paths
 
-print(find_all_paths2(graph,key1[0],key1[2])[0])
-print(key1[0],key1[2])
-# print(find_all_paths2(graph,key1[0],key1[1]))
-print(key1[0] in graph[key1[2]])
-
-# def find_all_paths3(graph, start, end, path=[]):
-#         path = path + [start]
-#         if start == end:
-#             return [path]
-#         if start not in graph:
-#         	return []
-#         paths = []
-#         for node in graph[start]:
-#             if node not in path:
-#                 newpaths = find_all_paths2(graph, node, end, path)
-#                 for newpath in newpaths:
-#                 	if len(newpath) == len(graph):
-#                 		paths.append(newpath)
-#         return paths
+# print(find_all_paths2(graph,key1[0],key1[2])[0])
+# print(key1[0],key1[2])
+# print(key1[0] in graph[key1[2]])
