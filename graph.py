@@ -64,10 +64,18 @@ class Graph(object):
         return '{}({})'.format(self.__class__.__name__, dict(self._graph))
 
 
+    def getDictlist(self):
+        newd = defaultdict(list, ((k, list(v)) for k, v in self._graph.items()))
+        return dict(newd)
+
+
 
 # connections = [('A', 'B'), ('B', 'C'), ('B', 'D'),
 #                    ('C', 'D'), ('E', 'F'), ('F', 'C')]
 
 # g = Graph(connections, directed=True)
 
-# print(g._graph)
+# d= g._graph
+
+# newd = defaultdict(list, ((k, list(v)) for k, v in d.items())) ## USEFUL : return a defaultdict(set) to defaultdict(list)
+# print(dict(newd))
