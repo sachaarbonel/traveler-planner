@@ -1,3 +1,11 @@
+graph = {'MADRID': ['GRECE','LISBONNE'],
+             'GRECE': ['LISBONNE'],
+             'LISBONNE': ['GRECE','MADRID']}
+
+
+key1=["MADRID","LISBONNE","GRECE"]
+
+
 def find_all_paths(graph, start, end, path=[]):
         path = path + [start]
         if start == end:
@@ -31,7 +39,6 @@ def find_all_paths2(graph, start, end, path=[]):
         return paths
 
 
-#euler
 
 def cyclic(g):
     """Return True if the directed graph g has a cycle.
@@ -58,18 +65,13 @@ def cyclic(g):
 
 
 
-graph = {'MADRID': ['GRECE','LISBONNE'],
-             'GRECE': ['LISBONNE'],
-             'LISBONNE': ['GRECE','MADRID']}
 
-
-key1=["MADRID","LISBONNE","GRECE"]
 
 
 # print(find_all_paths2(graph,key1[0],key1[2]))
 # print(find_all_paths2(graph,key1[0],key1[1]))
-# print("MADRID" in graph["GRECE"])
-print(cyclic(graph))
+#print("LISBONNE" in graph["GRECE"])
+#print(cyclic(graph))
 
 # def find_all_paths3(graph, start, end, path=[]):
 #         path = path + [start]

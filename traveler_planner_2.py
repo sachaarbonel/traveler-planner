@@ -6,6 +6,7 @@ from permutations_origin import gimmePermutationsOrigin
 from collections import defaultdict
 from random import uniform
 from list_of_dates import printListOfDates
+import timeit
 
 graph = {'MADRID': ['GRECE','LISBONNE'],
              'GRECE': ['LISBONNE','MADRID'],
@@ -27,10 +28,9 @@ def printRoutePossibilities(keys):
 		d= list(n)[1]
 		yield find_all_paths2(graph,s, d)[0]
 
-
 def printRoutesAndStepsForEach(keys):
 	for n in printRoutePossibilities(keys):
-		print(list(n),"possibility")
+		#print(list(n),"possibility")
 		for a, b in printPermutationsOrigin(n):
 			yield a + "-"+b
 		print("permutation origin finished")
@@ -50,11 +50,11 @@ def printMinPossibility(keys):
 	def gimmePossibilities(keys):
 		dList = printListOfDates()
 		g = gimmeRoutePossibilities(keys)
-		print(dictLists)
+		#print(dictLists)
 		for i in range(0, len(g)):
 			yield dictLists[g[i][0]][0] + dictLists[g[i][1]][1] + dictLists[g[i][2]][2]
 			print("\n"+"For the possibility " + str(i+1))
-			print("Price for " +g[i][0]+" for date ",dList[0],dictLists[g[i][0]][0],"Price for " +g[i][1]+" for date ",dList[1],dictLists[g[i][1]][1],"Price for " +g[i][2]+" for date ",dList[2],dictLists[g[i][2]][2])
+			print("Price for " +g[i][0]+" for date ",dList[0]," is ",dictLists[g[i][0]][0],"\n"+"Price for " +g[i][1]+" for date ",dList[1]," is ",dictLists[g[i][1]][1],"\n"+"Price for " +g[i][2]+" for date ",dList[2],"is",dictLists[g[i][2]][2],"\n")
 	for n in gimmePossibilities(keys):
 		if n is not None:
 			yield int(n)
@@ -63,9 +63,16 @@ def printMin(keys):
 	listn=[]
 	for n in printMinPossibility(keys):
 		listn += [n]
-	print(listn,"Sum of the prices in array")
-	print(min(listn),"Min of the sum")
+	print(listn,"Sum of the prices in array \n")
+	print(min(listn),"Min of the sum \n")
 	return min(listn)
 
+def wrapper(func, *args, **kwargs):
+ 	def wrapped():
+ 		return func(*args, **kwargs)
+ 	return wrapped
 
 printMin(key1)
+#wrapped = wrapper(printMin, key1)
+
+#print(timeit.timeit(wrapped, number=1000))
