@@ -1,5 +1,11 @@
 from collections import defaultdict
 
+#########################################################################################################
+#                                                                                                       #
+#   Source : https://stackoverflow.com/questions/19472530/representing-graphs-data-structure-in-python  #                             #
+#                                                                                                       #
+#########################################################################################################
+
 class Graph(object):
     """ Graph data structure, undirected by default. """
 
@@ -55,4 +61,13 @@ class Graph(object):
         return None
 
     def __str__(self):
-return '{}({})'.format(self.__class__.__name__, dict(self._graph))
+        return '{}({})'.format(self.__class__.__name__, dict(self._graph))
+
+
+
+# connections = [('A', 'B'), ('B', 'C'), ('B', 'D'),
+#                    ('C', 'D'), ('E', 'F'), ('F', 'C')]
+
+# g = Graph(connections, directed=True)
+
+# print(g._graph)
