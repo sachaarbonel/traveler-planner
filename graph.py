@@ -64,7 +64,7 @@ class Graph(object):
         return '{}({})'.format(self.__class__.__name__, dict(self._graph))
 
 
-    def getDictlist(self):
+    def getGraph(self):
         newd = defaultdict(list, ((k, list(v)) for k, v in self._graph.items()))
         return dict(newd)
 

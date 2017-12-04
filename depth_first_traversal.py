@@ -21,6 +21,7 @@ def find_all_paths(graph, start, end, path=[]):
         return paths
 
 
+# Best way to deal with results of the same length as the input later
 def find_all_paths2(graph, start, end, path=[]):
         path = path + [start]
         if start == end:
@@ -37,6 +38,7 @@ def find_all_paths2(graph, start, end, path=[]):
                 		paths.append(newpath)
 
         return paths
+
 
 # print(find_all_paths2(graph,key1[0],key1[2])[0])
 # print(key1[0],key1[2])

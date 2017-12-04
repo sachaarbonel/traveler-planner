@@ -17,8 +17,8 @@ routes = [('MADRID','GRECE'),('MADRID','LISBONNE'),('GRECE','LISBONNE'),('GRECE'
 
 graph2 = Graph(routes, directed=True)
 
-d = graph2.getDictlist()
-print(d)
+#d = graph2.getDictlist()
+#print(d)
 
 
 # print(graph2)
@@ -39,6 +39,7 @@ def printRoutePossibilities(keys):
 		s = list(n)[0]
 		d= list(n)[1]
 		yield find_all_paths2(graph,s, d)[0]
+
 
 def printRoutesAndStepsForEach(keys):
 	for n in printRoutePossibilities(keys):
@@ -96,5 +97,5 @@ def printMin(keys):
 
 #print(timeit.timeit(wrapped, number=1000))
 
-for n in printRoutesAndStepsForEach(key1):
-	print(n)
+# for n in printRoutesAndStepsForEach(key1):
+# 	print(n)
