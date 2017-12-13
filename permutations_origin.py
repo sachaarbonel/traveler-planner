@@ -18,7 +18,7 @@ def permutationsReturnOrigin(array):
 	yield array[len(array)-1],array[0]
 
 # arr = [5, 66,7]
-# for i in permutationsOrigin2(arr):
+# for i in permutationsReturnOrigin(arr):
 # 	print(i)
 
 
