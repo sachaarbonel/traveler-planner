@@ -120,13 +120,6 @@ def optimizedMinRoutePossibility(routes,startDate,cities,days):
 	calendar = printListOfDates()
 	indexStartDate = calendar.index(startDate)
 	priceDatabase = createFakePriceDatabase(routes)
-	lengthDays = len(days)
-	# for i in days:
-	# 	print(priceDatabase["MADRID-LISBONNE"][indexStartDate + i]) # 01/01/2017
-	
-	# for possibility in optimizedRoutePossibilities2(routes,cities):
-	# 	for couple in permutationsReturnOrigin(possibility):
-	# 		print(transformArray2(couple))
 	sumPricesArray = []
 	for possibility in optimizedRoutePossibilities2(routes,cities):
 		i=0
@@ -148,7 +141,56 @@ def optimizedMinRoutePossibility(routes,startDate,cities,days):
 
 
 
-optimizedMinRoutePossibility(routes,startDate,cities,days)
+#optimizedMinRoutePossibility(routes,startDate,cities,days)
+
+def finalResult(routes,startDate,cities,days):
+	""" 
+	take in argument routes and return all the paths via dfs
+	time : 0.16s
+	"""
+
+	calendar = printListOfDates()
+	indexStartDate = calendar.index(startDate)
+	priceDatabase = createFakePriceDatabase(routes)
+	sumPricesArray = []
+	for possibility in optimizedRoutePossibilities2(routes,cities):
+		i=0
+		prices=[]
+		#print(possibility)
+		for couple in permutationsReturnOrigin(possibility):
+			#print(couple)
+			#print(priceDatabase[couple[0]+"-"+couple[1]])
+			priceForDate = priceDatabase[couple[0]+"-"+couple[1]][indexStartDate + i]
+			#print(priceForDate)
+			prices += [priceForDate]
+			i+=1
+		print(prices)
+		sumPrices = sum(prices)
+		#print(sumPrices)
+		sumPricesArray+=[sumPrices]
+	print(sumPricesArray)
+	print(min(sumPricesArray))
+
+	route = [
+		{"title":"blabla",
+		"price":3
+		}
+	]
+
+	details = [
+		{"title":"details de blabla",
+		"price":2
+		},
+		{"title":"details 2 de blabla",
+		"price":1
+		}
+	]
+
+	return route, details
+
+
+
+print(finalResult(routes,startDate,cities,days))
 
 ## TIME FUCTIONS
 # def wrapper(func, *args, **kwargs):
